@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "518503099424",
+    "project_id": "tmdb-mobile-prod",
+    "storage_bucket": "tmdb-mobile-prod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518503099424:android:31d5e5d3ae0fe03be2a045",
+        "android_client_info": {
+          "package_name": "com.dk.tmdb_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518503099424-v4mkof4dutlrrork1vc00m3ur6p6f9dr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9Vtqz9_RhQfMyNjMSdUD22mVjZiCai-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518503099424-v4mkof4dutlrrork1vc00m3ur6p6f9dr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
