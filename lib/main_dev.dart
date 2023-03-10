@@ -11,7 +11,7 @@ void main() async {
     appTitle: 'TMDB',
     buildFlavor: 'dev',
     serverUrl: '',
-    baseUrl: '',
+    baseUrl: 'https://developers.themoviedb.org/3/trending',
     child: Container(),
   );
   appInitializer(appConfig);

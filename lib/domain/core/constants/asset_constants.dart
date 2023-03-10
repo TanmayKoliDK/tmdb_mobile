@@ -10,6 +10,7 @@ class AssetConstants {
   static const String twitterImg = '${imagesFolder}twitter.png';
   static const String dotsLoader = '${imagesFolder}dots-loader.gif';
   static const String logo = '${imagesFolder}Tmdb_logo.png';
+  static const String poster = '${imagesFolder}poster.jpeg';
 
   static const String hardDrive = '${vectorsFolder}hardDrive.svg';
   static const String saveDisk = '${vectorsFolder}savedisk.svg';
@@ -38,4 +39,5 @@ class AssetConstants {
   static const String unlinkDevice = '${vectorsFolder}unlink-device.svg';
 
   static const String tmdbLogo = '${vectorsFolder}tmdb_logo.svg';
+  static const String arrowDown = '${vectorsFolder}nav-arrow-down.svg';
 }

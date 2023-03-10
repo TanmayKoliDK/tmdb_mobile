@@ -75,6 +75,7 @@ class MainApp extends StatelessWidget {
 
 Future appInitializer(AppConfig appConfig) async {
   //await FirebaseAuth.instance.signOut();
+  print('hello');
   User? user = FirebaseAuth.instance.currentUser;
 
   bool isAuthorized = user != null;

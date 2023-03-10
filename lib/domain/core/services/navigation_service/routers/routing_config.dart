@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:tmdb_mobile/presentation/auth/login/login_screen.dart';
 import 'package:tmdb_mobile/presentation/auth/reset_password/reset_password_screen.dart';
 import 'package:tmdb_mobile/presentation/auth/signup/signup_screen.dart';
+import 'package:tmdb_mobile/presentation/home/home_screen.dart';
 import 'package:tmdb_mobile/presentation/welcome/welcome_screen.dart';
 
 //import 'package:tmdb_mobile/presentation/welcome/welcome_screen.dart';
@@ -60,7 +61,7 @@ Route<dynamic> commonNavigation(RouteSettings settings) {
 
     default:
       return _getPageRoute(
-        const SignUpScreen(),
+        const HomeScreen(),
         settings,
       );
   }
