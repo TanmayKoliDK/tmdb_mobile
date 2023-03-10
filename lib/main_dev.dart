@@ -8,10 +8,11 @@ void main() async {
   await Firebase.initializeApp();
 
   final appConfig = AppConfig(
-    appTitle: 'TMDB',
+    appTitle: 'TMDB-Dev',
     buildFlavor: 'dev',
     serverUrl: '',
-    baseUrl: 'https://developers.themoviedb.org/3/trending',
+    apiKey: 'f07f416421d64fe36ff618c87b64741b',
+    apiBaseUrl: 'https://api.themoviedb.org/3/',
     child: Container(),
   );
   appInitializer(appConfig);

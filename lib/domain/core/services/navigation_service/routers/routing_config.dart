@@ -4,7 +4,6 @@ import 'package:tmdb_mobile/presentation/auth/login/login_screen.dart';
 import 'package:tmdb_mobile/presentation/auth/reset_password/reset_password_screen.dart';
 import 'package:tmdb_mobile/presentation/auth/signup/signup_screen.dart';
 import 'package:tmdb_mobile/presentation/home/home_screen.dart';
-import 'package:tmdb_mobile/presentation/welcome/welcome_screen.dart';
 
 //import 'package:tmdb_mobile/presentation/welcome/welcome_screen.dart';
 
@@ -19,7 +18,7 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
   switch (routingData.route) {
     case CoreRoutes.homeRoute:
       return _getPageRoute(
-        Container(),
+        const HomeScreen(),
         settings,
       );
 
@@ -53,15 +52,11 @@ Route<dynamic> commonNavigation(RouteSettings settings) {
         settings,
       );
 
-    case CoreRoutes.welcomeRoute:
-      return _getPageRoute(
-        const WelcomeScreen(),
-        settings,
-      );
-
     default:
       return _getPageRoute(
-        const HomeScreen(),
+        Container(
+          color: Colors.white,
+        ),
         settings,
       );
   }

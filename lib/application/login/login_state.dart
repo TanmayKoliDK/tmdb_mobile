@@ -22,16 +22,17 @@ class LoginState with _$LoginState {
     required String apiBaseUrl,
   }) {
     return LoginState(
-        isFailed: false,
-        isSuccess: false,
-        noUse: false,
-        isLoading: false,
-        errorMessage: '',
-        validateForm: false,
-        showPassword: false,
-        authRepository: IAuthRepository(apiBaseUrl: apiBaseUrl),
-        formKey: GlobalKey<FormState>(),
-        emailController: TextEditingController(text: email),
-        passwordController: TextEditingController(),);
+      isFailed: false,
+      isSuccess: false,
+      noUse: false,
+      isLoading: false,
+      errorMessage: '',
+      validateForm: false,
+      showPassword: false,
+      authRepository: IAuthRepository(apiBaseUrl: apiBaseUrl),
+      formKey: GlobalKey<FormState>(),
+      emailController: TextEditingController(text: email),
+      passwordController: TextEditingController(),
+    );
   }
 }

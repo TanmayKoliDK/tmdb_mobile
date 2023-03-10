@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tmdb_mobile/domain/core/configs/app_config.dart';
+import 'package:tmdb_mobile/domain/core/constants/api_constants.dart';
 
 import '../../application/home/home_bloc.dart';
 import '../../domain/core/constants/asset_constants.dart';
@@ -12,9 +14,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String apiBaseUrl = AppConfig.of(context)!.apiBaseUrl;
+    String apiKey = AppConfig.of(context)!.apiKey;
+
     return BlocProvider(
       create: (context) {
-        return HomeBloc(HomeState.initial());
+        return HomeBloc(
+            HomeState.initial(apiBaseUrl: apiBaseUrl, apiKey: apiKey))
+          ..add(const HomeEvent.init());
       },
       child: HomeScreenConsumer(),
     );
@@ -23,12 +30,6 @@ class HomeScreen extends StatelessWidget {
 
 class HomeScreenConsumer extends StatelessWidget {
   HomeScreenConsumer({super.key});
-  var items = [
-    'Today',
-    'This Week',
-  ];
-
-  String dropdownvalue = 'Today';
 
   @override
   Widget build(BuildContext context) {
@@ -60,15 +61,9 @@ class HomeScreenConsumer extends StatelessWidget {
                   PopupMenuItem(
                     value: 1,
                     child: ListTile(
-                      title: Text('Login'),
+                      title: Text('Logout'),
                     ),
                   ),
-                  PopupMenuItem(
-                    value: 2,
-                    child: ListTile(
-                      title: Text('Sign Up'),
-                    ),
-                  )
                 ],
                 icon: Icon(
                   Icons.person,
@@ -82,8 +77,8 @@ class HomeScreenConsumer extends StatelessWidget {
               Stack(children: [
                 Container(
                   alignment: Alignment.center,
-                  child: Image.network(
-                    'https://w0.peakpx.com/wallpaper/959/842/HD-wallpaper-itachi-uchiha-mys-itachi-uchiha-naruto.jpg',
+                  child: Image.asset(
+                    AssetConstants.itachi,
                     height: 45.h,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -202,49 +197,86 @@ class HomeScreenConsumer extends StatelessWidget {
                             height: 7.w,
                             color: const Color.fromARGB(255, 128, 224, 131),
                           ),
-                          value: dropdownvalue,
-                          items: items.map((String item) {
+                          value: state.selectedTrendingValue,
+                          items: state.trendingDropdownList.map((String item) {
                             return DropdownMenuItem(
                               value: item,
                               child: Text(item),
                             );
                           }).toList(),
                           onChanged: (String? newValue) {
-                            dropdownvalue = newValue!;
+                            context
+                                .read<HomeBloc>()
+                                .add(HomeEvent.onChangeTrendingTime(
+                                  selectedTime: newValue!,
+                                ));
                           }),
                     ),
                   ]),
                   SizedBox(height: 1.h),
                   SizedBox(
-                    height: 30.h,
+                    height: 35.h,
                     width: 100.w,
                     child: ListView.separated(
-                      padding: EdgeInsets.symmetric(horizontal: 5.w),
                       scrollDirection: Axis.horizontal,
-                      itemCount: 6,
+                      padding: EdgeInsets.symmetric(horizontal: 5.w),
+                      itemCount: state.isLoadingTrendingSection
+                          ? 5
+                          : state.lsOfTrending.length,
                       separatorBuilder: (BuildContext context, int index) {
                         return SizedBox(
                           width: 5.w,
                         );
                       },
                       itemBuilder: (BuildContext context, int index) {
-                        return Stack(children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.grey,
-                              borderRadius: BorderRadius.circular(1.5.w),
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(1.5.w),
-                              child: Image.network(
-                                  'https://m.media-amazon.com/images/M/MV5BODZhNzlmOGItMWUyYS00Y2Q5LWFlNzMtM2I2NDFkM2ZkYmE1XkEyXkFqcGdeQXVyMTU5OTA4NTIz._V1_FMjpg_UX1000_.jpg',
-                                  fit: BoxFit.cover),
-                            ),
-                          ),
-                        ]);
+                        return state.isLoadingTrendingSection
+                            ? Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(2.w),
+                                  color: Colors.grey.withOpacity(0.4),
+                                ),
+                                height: 10.h,
+                                width: 40.w,
+                              )
+                            : SizedBox(
+                                width: 40.w,
+                                child: Column(children: [
+                                  Container(
+                                    width: 40.w,
+                                    height: 30.h,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.withOpacity(0.4),
+                                      borderRadius:
+                                          BorderRadius.circular(1.5.w),
+                                    ),
+                                    child: state.lsOfTrending[index]
+                                                .poster_path ==
+                                            null
+                                        ? null
+                                        : ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(1.5.w),
+                                            child: Image.network(
+                                                '${ApiConstants.displayImagePath}${state.lsOfTrending[index].poster_path ?? ''}',
+                                                fit: BoxFit.cover),
+                                          ),
+                                  ),
+                                  Text(
+                                    state.lsOfTrending[index].name ??
+                                        state.lsOfTrending[index].title ??
+                                        '',
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.center,
+                                    style:
+                                        Theme.of(context).textTheme.bodySmall,
+                                  ),
+                                ]),
+                              );
                       },
                     ),
                   ),
+                  SizedBox(height: 5.h),
                 ]),
               ]),
             ]),

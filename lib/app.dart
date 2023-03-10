@@ -2,7 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tmdb_mobile/infrastructure/auth/dtos/user/user_dto.dart';
+import 'package:tmdb_mobile/infrastructure/auth/i_auth_repository.dart';
+import 'package:tmdb_mobile/infrastructure/tmdb/i_tmdb_repository.dart';
 
+import 'domain/auth/auth_repositorry.dart';
 import 'domain/core/configs/app_config.dart';
 import 'domain/core/configs/injection.dart';
 import 'domain/core/services/navigation_service/navigation_service.dart';
@@ -67,26 +71,32 @@ class MainApp extends StatelessWidget {
           ? authorizedNavigation
           : commonNavigation,
       initialRoute: Provider.of<AppStateNotifier>(context).isAuthorized
-          ? CoreRoutes.welcomeRoute
-          : AuthRoutes.onboardingRoute,
+          ? CoreRoutes.homeRoute
+          : AuthRoutes.logInRoute,
     );
   }
 }
 
 Future appInitializer(AppConfig appConfig) async {
-  //await FirebaseAuth.instance.signOut();
-  print('hello');
-  User? user = FirebaseAuth.instance.currentUser;
+  AuthRepository authRepository =
+      IAuthRepository(apiBaseUrl: appConfig.apiBaseUrl);
+  UserDto? userDto;
+  bool isAuthorized = false;
 
-  bool isAuthorized = user != null;
+  userDto = await authRepository.authenticateUser();
+
+  isAuthorized = userDto != null;
 
   AppStateNotifier appStateNotifier = AppStateNotifier(
     isAuthorized: isAuthorized,
+    user: userDto,
   );
+
   final AppConfig configuredApp = AppConfig(
     appTitle: appConfig.appTitle,
-    baseUrl: appConfig.baseUrl,
+    apiBaseUrl: appConfig.apiBaseUrl,
     serverUrl: appConfig.serverUrl,
+    apiKey: appConfig.apiKey,
     buildFlavor: appConfig.buildFlavor,
     child: ChangeNotifierProvider<AppStateNotifier>(create: (context) {
       return appStateNotifier;

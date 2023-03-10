@@ -11,7 +11,8 @@ void main() async {
     appTitle: 'TMDB',
     buildFlavor: 'production',
     serverUrl: '',
-    baseUrl: '',
+    apiKey: 'f07f416421d64fe36ff618c87b64741b',
+    apiBaseUrl: 'https://api.themoviedb.org/3/',
     child: Container(),
   );
   appInitializer(appConfig);

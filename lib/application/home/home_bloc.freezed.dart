@@ -20,6 +20,7 @@ mixin _$HomeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onload,
+    required TResult Function(String selectedTime) onChangeTrendingTime,
     required TResult Function(HomeState state) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +28,7 @@ mixin _$HomeEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onload,
+    TResult Function(String selectedTime)? onChangeTrendingTime,
     TResult Function(HomeState state)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +36,7 @@ mixin _$HomeEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onload,
+    TResult Function(String selectedTime)? onChangeTrendingTime,
     TResult Function(HomeState state)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -42,6 +45,7 @@ mixin _$HomeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Onload value) onload,
+    required TResult Function(_OnChangeTrendingTime value) onChangeTrendingTime,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +53,7 @@ mixin _$HomeEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Onload value)? onload,
+    TResult Function(_OnChangeTrendingTime value)? onChangeTrendingTime,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +61,7 @@ mixin _$HomeEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Onload value)? onload,
+    TResult Function(_OnChangeTrendingTime value)? onChangeTrendingTime,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -117,6 +123,7 @@ class _$_Init implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onload,
+    required TResult Function(String selectedTime) onChangeTrendingTime,
     required TResult Function(HomeState state) emitFromAnywhere,
   }) {
     return init();
@@ -127,6 +134,7 @@ class _$_Init implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onload,
+    TResult Function(String selectedTime)? onChangeTrendingTime,
     TResult Function(HomeState state)? emitFromAnywhere,
   }) {
     return init?.call();
@@ -137,6 +145,7 @@ class _$_Init implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onload,
+    TResult Function(String selectedTime)? onChangeTrendingTime,
     TResult Function(HomeState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -151,6 +160,7 @@ class _$_Init implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Onload value) onload,
+    required TResult Function(_OnChangeTrendingTime value) onChangeTrendingTime,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return init(this);
@@ -161,6 +171,7 @@ class _$_Init implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Onload value)? onload,
+    TResult Function(_OnChangeTrendingTime value)? onChangeTrendingTime,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return init?.call(this);
@@ -171,6 +182,7 @@ class _$_Init implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Onload value)? onload,
+    TResult Function(_OnChangeTrendingTime value)? onChangeTrendingTime,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -225,6 +237,7 @@ class _$_Onload implements _Onload {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onload,
+    required TResult Function(String selectedTime) onChangeTrendingTime,
     required TResult Function(HomeState state) emitFromAnywhere,
   }) {
     return onload();
@@ -235,6 +248,7 @@ class _$_Onload implements _Onload {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onload,
+    TResult Function(String selectedTime)? onChangeTrendingTime,
     TResult Function(HomeState state)? emitFromAnywhere,
   }) {
     return onload?.call();
@@ -245,6 +259,7 @@ class _$_Onload implements _Onload {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onload,
+    TResult Function(String selectedTime)? onChangeTrendingTime,
     TResult Function(HomeState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -259,6 +274,7 @@ class _$_Onload implements _Onload {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Onload value) onload,
+    required TResult Function(_OnChangeTrendingTime value) onChangeTrendingTime,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return onload(this);
@@ -269,6 +285,7 @@ class _$_Onload implements _Onload {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Onload value)? onload,
+    TResult Function(_OnChangeTrendingTime value)? onChangeTrendingTime,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return onload?.call(this);
@@ -279,6 +296,7 @@ class _$_Onload implements _Onload {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Onload value)? onload,
+    TResult Function(_OnChangeTrendingTime value)? onChangeTrendingTime,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -291,6 +309,155 @@ class _$_Onload implements _Onload {
 
 abstract class _Onload implements HomeEvent {
   const factory _Onload() = _$_Onload;
+}
+
+/// @nodoc
+abstract class _$$_OnChangeTrendingTimeCopyWith<$Res> {
+  factory _$$_OnChangeTrendingTimeCopyWith(_$_OnChangeTrendingTime value,
+          $Res Function(_$_OnChangeTrendingTime) then) =
+      __$$_OnChangeTrendingTimeCopyWithImpl<$Res>;
+  $Res call({String selectedTime});
+}
+
+/// @nodoc
+class __$$_OnChangeTrendingTimeCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$$_OnChangeTrendingTimeCopyWith<$Res> {
+  __$$_OnChangeTrendingTimeCopyWithImpl(_$_OnChangeTrendingTime _value,
+      $Res Function(_$_OnChangeTrendingTime) _then)
+      : super(_value, (v) => _then(v as _$_OnChangeTrendingTime));
+
+  @override
+  _$_OnChangeTrendingTime get _value => super._value as _$_OnChangeTrendingTime;
+
+  @override
+  $Res call({
+    Object? selectedTime = freezed,
+  }) {
+    return _then(_$_OnChangeTrendingTime(
+      selectedTime: selectedTime == freezed
+          ? _value.selectedTime
+          : selectedTime // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_OnChangeTrendingTime implements _OnChangeTrendingTime {
+  const _$_OnChangeTrendingTime({required this.selectedTime});
+
+  @override
+  final String selectedTime;
+
+  @override
+  String toString() {
+    return 'HomeEvent.onChangeTrendingTime(selectedTime: $selectedTime)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OnChangeTrendingTime &&
+            const DeepCollectionEquality()
+                .equals(other.selectedTime, selectedTime));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(selectedTime));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_OnChangeTrendingTimeCopyWith<_$_OnChangeTrendingTime> get copyWith =>
+      __$$_OnChangeTrendingTimeCopyWithImpl<_$_OnChangeTrendingTime>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() onload,
+    required TResult Function(String selectedTime) onChangeTrendingTime,
+    required TResult Function(HomeState state) emitFromAnywhere,
+  }) {
+    return onChangeTrendingTime(selectedTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onload,
+    TResult Function(String selectedTime)? onChangeTrendingTime,
+    TResult Function(HomeState state)? emitFromAnywhere,
+  }) {
+    return onChangeTrendingTime?.call(selectedTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onload,
+    TResult Function(String selectedTime)? onChangeTrendingTime,
+    TResult Function(HomeState state)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (onChangeTrendingTime != null) {
+      return onChangeTrendingTime(selectedTime);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Onload value) onload,
+    required TResult Function(_OnChangeTrendingTime value) onChangeTrendingTime,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+  }) {
+    return onChangeTrendingTime(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Onload value)? onload,
+    TResult Function(_OnChangeTrendingTime value)? onChangeTrendingTime,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+  }) {
+    return onChangeTrendingTime?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Onload value)? onload,
+    TResult Function(_OnChangeTrendingTime value)? onChangeTrendingTime,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (onChangeTrendingTime != null) {
+      return onChangeTrendingTime(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnChangeTrendingTime implements HomeEvent {
+  const factory _OnChangeTrendingTime({required final String selectedTime}) =
+      _$_OnChangeTrendingTime;
+
+  String get selectedTime;
+  @JsonKey(ignore: true)
+  _$$_OnChangeTrendingTimeCopyWith<_$_OnChangeTrendingTime> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -369,6 +536,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onload,
+    required TResult Function(String selectedTime) onChangeTrendingTime,
     required TResult Function(HomeState state) emitFromAnywhere,
   }) {
     return emitFromAnywhere(state);
@@ -379,6 +547,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onload,
+    TResult Function(String selectedTime)? onChangeTrendingTime,
     TResult Function(HomeState state)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(state);
@@ -389,6 +558,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onload,
+    TResult Function(String selectedTime)? onChangeTrendingTime,
     TResult Function(HomeState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -403,6 +573,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Onload value) onload,
+    required TResult Function(_OnChangeTrendingTime value) onChangeTrendingTime,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return emitFromAnywhere(this);
@@ -413,6 +584,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Onload value)? onload,
+    TResult Function(_OnChangeTrendingTime value)? onChangeTrendingTime,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(this);
@@ -423,6 +595,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Onload value)? onload,
+    TResult Function(_OnChangeTrendingTime value)? onChangeTrendingTime,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -448,8 +621,13 @@ mixin _$HomeState {
   bool get isFailed => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
   bool get noUse => throw _privateConstructorUsedError;
-  bool get isLoding => throw _privateConstructorUsedError;
-  String get errorMessge => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isLoadingTrendingSection => throw _privateConstructorUsedError;
+  List<TrendingDataDto> get lsOfTrending => throw _privateConstructorUsedError;
+  List<String> get trendingDropdownList => throw _privateConstructorUsedError;
+  String get selectedTrendingValue => throw _privateConstructorUsedError;
+  TMDBRepository get tmdbRepository => throw _privateConstructorUsedError;
+  String get errorMessage => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -464,8 +642,13 @@ abstract class $HomeStateCopyWith<$Res> {
       {bool isFailed,
       bool isSuccess,
       bool noUse,
-      bool isLoding,
-      String errorMessge});
+      bool isLoading,
+      bool isLoadingTrendingSection,
+      List<TrendingDataDto> lsOfTrending,
+      List<String> trendingDropdownList,
+      String selectedTrendingValue,
+      TMDBRepository tmdbRepository,
+      String errorMessage});
 }
 
 /// @nodoc
@@ -481,8 +664,13 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
     Object? isFailed = freezed,
     Object? isSuccess = freezed,
     Object? noUse = freezed,
-    Object? isLoding = freezed,
-    Object? errorMessge = freezed,
+    Object? isLoading = freezed,
+    Object? isLoadingTrendingSection = freezed,
+    Object? lsOfTrending = freezed,
+    Object? trendingDropdownList = freezed,
+    Object? selectedTrendingValue = freezed,
+    Object? tmdbRepository = freezed,
+    Object? errorMessage = freezed,
   }) {
     return _then(_value.copyWith(
       isFailed: isFailed == freezed
@@ -497,13 +685,33 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLoding: isLoding == freezed
-          ? _value.isLoding
-          : isLoding // ignore: cast_nullable_to_non_nullable
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      errorMessge: errorMessge == freezed
-          ? _value.errorMessge
-          : errorMessge // ignore: cast_nullable_to_non_nullable
+      isLoadingTrendingSection: isLoadingTrendingSection == freezed
+          ? _value.isLoadingTrendingSection
+          : isLoadingTrendingSection // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lsOfTrending: lsOfTrending == freezed
+          ? _value.lsOfTrending
+          : lsOfTrending // ignore: cast_nullable_to_non_nullable
+              as List<TrendingDataDto>,
+      trendingDropdownList: trendingDropdownList == freezed
+          ? _value.trendingDropdownList
+          : trendingDropdownList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      selectedTrendingValue: selectedTrendingValue == freezed
+          ? _value.selectedTrendingValue
+          : selectedTrendingValue // ignore: cast_nullable_to_non_nullable
+              as String,
+      tmdbRepository: tmdbRepository == freezed
+          ? _value.tmdbRepository
+          : tmdbRepository // ignore: cast_nullable_to_non_nullable
+              as TMDBRepository,
+      errorMessage: errorMessage == freezed
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -519,8 +727,13 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       {bool isFailed,
       bool isSuccess,
       bool noUse,
-      bool isLoding,
-      String errorMessge});
+      bool isLoading,
+      bool isLoadingTrendingSection,
+      List<TrendingDataDto> lsOfTrending,
+      List<String> trendingDropdownList,
+      String selectedTrendingValue,
+      TMDBRepository tmdbRepository,
+      String errorMessage});
 }
 
 /// @nodoc
@@ -538,8 +751,13 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
     Object? isFailed = freezed,
     Object? isSuccess = freezed,
     Object? noUse = freezed,
-    Object? isLoding = freezed,
-    Object? errorMessge = freezed,
+    Object? isLoading = freezed,
+    Object? isLoadingTrendingSection = freezed,
+    Object? lsOfTrending = freezed,
+    Object? trendingDropdownList = freezed,
+    Object? selectedTrendingValue = freezed,
+    Object? tmdbRepository = freezed,
+    Object? errorMessage = freezed,
   }) {
     return _then(_$_HomeState(
       isFailed: isFailed == freezed
@@ -554,13 +772,33 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
               as bool,
-      isLoding: isLoding == freezed
-          ? _value.isLoding
-          : isLoding // ignore: cast_nullable_to_non_nullable
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      errorMessge: errorMessge == freezed
-          ? _value.errorMessge
-          : errorMessge // ignore: cast_nullable_to_non_nullable
+      isLoadingTrendingSection: isLoadingTrendingSection == freezed
+          ? _value.isLoadingTrendingSection
+          : isLoadingTrendingSection // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lsOfTrending: lsOfTrending == freezed
+          ? _value._lsOfTrending
+          : lsOfTrending // ignore: cast_nullable_to_non_nullable
+              as List<TrendingDataDto>,
+      trendingDropdownList: trendingDropdownList == freezed
+          ? _value._trendingDropdownList
+          : trendingDropdownList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      selectedTrendingValue: selectedTrendingValue == freezed
+          ? _value.selectedTrendingValue
+          : selectedTrendingValue // ignore: cast_nullable_to_non_nullable
+              as String,
+      tmdbRepository: tmdbRepository == freezed
+          ? _value.tmdbRepository
+          : tmdbRepository // ignore: cast_nullable_to_non_nullable
+              as TMDBRepository,
+      errorMessage: errorMessage == freezed
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -573,8 +811,15 @@ class _$_HomeState implements _HomeState {
       {required this.isFailed,
       required this.isSuccess,
       required this.noUse,
-      required this.isLoding,
-      required this.errorMessge});
+      required this.isLoading,
+      required this.isLoadingTrendingSection,
+      required final List<TrendingDataDto> lsOfTrending,
+      required final List<String> trendingDropdownList,
+      required this.selectedTrendingValue,
+      required this.tmdbRepository,
+      required this.errorMessage})
+      : _lsOfTrending = lsOfTrending,
+        _trendingDropdownList = trendingDropdownList;
 
   @override
   final bool isFailed;
@@ -583,13 +828,33 @@ class _$_HomeState implements _HomeState {
   @override
   final bool noUse;
   @override
-  final bool isLoding;
+  final bool isLoading;
   @override
-  final String errorMessge;
+  final bool isLoadingTrendingSection;
+  final List<TrendingDataDto> _lsOfTrending;
+  @override
+  List<TrendingDataDto> get lsOfTrending {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_lsOfTrending);
+  }
+
+  final List<String> _trendingDropdownList;
+  @override
+  List<String> get trendingDropdownList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_trendingDropdownList);
+  }
+
+  @override
+  final String selectedTrendingValue;
+  @override
+  final TMDBRepository tmdbRepository;
+  @override
+  final String errorMessage;
 
   @override
   String toString() {
-    return 'HomeState(isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, isLoding: $isLoding, errorMessge: $errorMessge)';
+    return 'HomeState(isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, isLoading: $isLoading, isLoadingTrendingSection: $isLoadingTrendingSection, lsOfTrending: $lsOfTrending, trendingDropdownList: $trendingDropdownList, selectedTrendingValue: $selectedTrendingValue, tmdbRepository: $tmdbRepository, errorMessage: $errorMessage)';
   }
 
   @override
@@ -600,9 +865,19 @@ class _$_HomeState implements _HomeState {
             const DeepCollectionEquality().equals(other.isFailed, isFailed) &&
             const DeepCollectionEquality().equals(other.isSuccess, isSuccess) &&
             const DeepCollectionEquality().equals(other.noUse, noUse) &&
-            const DeepCollectionEquality().equals(other.isLoding, isLoding) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality().equals(
+                other.isLoadingTrendingSection, isLoadingTrendingSection) &&
             const DeepCollectionEquality()
-                .equals(other.errorMessge, errorMessge));
+                .equals(other._lsOfTrending, _lsOfTrending) &&
+            const DeepCollectionEquality()
+                .equals(other._trendingDropdownList, _trendingDropdownList) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedTrendingValue, selectedTrendingValue) &&
+            const DeepCollectionEquality()
+                .equals(other.tmdbRepository, tmdbRepository) &&
+            const DeepCollectionEquality()
+                .equals(other.errorMessage, errorMessage));
   }
 
   @override
@@ -611,8 +886,13 @@ class _$_HomeState implements _HomeState {
       const DeepCollectionEquality().hash(isFailed),
       const DeepCollectionEquality().hash(isSuccess),
       const DeepCollectionEquality().hash(noUse),
-      const DeepCollectionEquality().hash(isLoding),
-      const DeepCollectionEquality().hash(errorMessge));
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isLoadingTrendingSection),
+      const DeepCollectionEquality().hash(_lsOfTrending),
+      const DeepCollectionEquality().hash(_trendingDropdownList),
+      const DeepCollectionEquality().hash(selectedTrendingValue),
+      const DeepCollectionEquality().hash(tmdbRepository),
+      const DeepCollectionEquality().hash(errorMessage));
 
   @JsonKey(ignore: true)
   @override
@@ -625,8 +905,13 @@ abstract class _HomeState implements HomeState {
       {required final bool isFailed,
       required final bool isSuccess,
       required final bool noUse,
-      required final bool isLoding,
-      required final String errorMessge}) = _$_HomeState;
+      required final bool isLoading,
+      required final bool isLoadingTrendingSection,
+      required final List<TrendingDataDto> lsOfTrending,
+      required final List<String> trendingDropdownList,
+      required final String selectedTrendingValue,
+      required final TMDBRepository tmdbRepository,
+      required final String errorMessage}) = _$_HomeState;
 
   @override
   bool get isFailed;
@@ -635,9 +920,19 @@ abstract class _HomeState implements HomeState {
   @override
   bool get noUse;
   @override
-  bool get isLoding;
+  bool get isLoading;
   @override
-  String get errorMessge;
+  bool get isLoadingTrendingSection;
+  @override
+  List<TrendingDataDto> get lsOfTrending;
+  @override
+  List<String> get trendingDropdownList;
+  @override
+  String get selectedTrendingValue;
+  @override
+  TMDBRepository get tmdbRepository;
+  @override
+  String get errorMessage;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

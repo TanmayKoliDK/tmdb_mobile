@@ -7,5 +7,4 @@ class AuthRoutes {
 
 class CoreRoutes {
   static const String homeRoute = 'home';
-  static const String welcomeRoute = 'welcome';
 }

@@ -6,16 +6,32 @@ class HomeState with _$HomeState {
     required bool isFailed,
     required bool isSuccess,
     required bool noUse,
-    required bool isLoding,
-    required String errorMessge,
+    required bool isLoading,
+    required bool isLoadingTrendingSection,
+    required List<TrendingDataDto> lsOfTrending,
+    required List<String> trendingDropdownList,
+    required String selectedTrendingValue,
+    required TMDBRepository tmdbRepository,
+    required String errorMessage,
   }) = _HomeState;
 
-  factory HomeState.initial() {
-    return const HomeState(
+  factory HomeState.initial({
+    required String apiBaseUrl,
+    required String apiKey,
+  }) {
+    return HomeState(
+        isLoadingTrendingSection: false,
+        tmdbRepository: ITMDBRepository(apiUrl: apiBaseUrl, apiKey: apiKey),
+        selectedTrendingValue: 'Today',
+        trendingDropdownList: [
+          'Today',
+          'This Week',
+        ],
+        lsOfTrending: [],
         isFailed: false,
         isSuccess: false,
         noUse: false,
-        isLoding: false,
-        errorMessge: '');
+        isLoading: false,
+        errorMessage: '');
   }
 }

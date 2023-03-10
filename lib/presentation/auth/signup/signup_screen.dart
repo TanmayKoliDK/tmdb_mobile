@@ -22,7 +22,7 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String apiBaseUrl = AppConfig.of(context)!.baseUrl;
+    final String apiBaseUrl = AppConfig.of(context)!.apiBaseUrl;
 
     return BlocProvider(
       create: (context) =>
@@ -46,7 +46,7 @@ class SignUpScreenConsumer extends StatelessWidget {
               .updateAfterAuthChange(user: state.userDto, isAuthorized: true);
           Future.delayed(const Duration(milliseconds: 100), () {
             navigator<NavigationService>()
-                .navigateTo(CoreRoutes.welcomeRoute, isClearStack: true);
+                .navigateTo(CoreRoutes.homeRoute, isClearStack: true);
           });
         } else if (state.isFailed) {
           if (state.errorMessage.isNotEmpty) {
@@ -115,8 +115,7 @@ class SignUpScreenConsumer extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Form(
                   key: state.formKey,
-                  child: 
-                  Column(
+                  child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(

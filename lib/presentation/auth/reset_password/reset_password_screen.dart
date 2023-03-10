@@ -22,7 +22,7 @@ class ResetPassword extends StatelessWidget {
     final AppConfig appConfig = AppConfig.of(context)!;
     return BlocProvider(
       create: (context) => ResetPasswordBloc(
-          ResetPasswordState.initial(apiBaseUrl: appConfig.baseUrl)),
+          ResetPasswordState.initial(apiBaseUrl: appConfig.apiBaseUrl)),
       child: const ResetPasswordConsumer(),
     );
   }

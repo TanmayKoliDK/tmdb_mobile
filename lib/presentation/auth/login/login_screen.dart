@@ -27,7 +27,7 @@ class LoginScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) {
         return LoginBloc(
-            LoginState.initial(email: email, apiBaseUrl: appConfig.baseUrl));
+            LoginState.initial(email: email, apiBaseUrl: appConfig.apiBaseUrl));
       },
       child: const LoginScreenConsumer(),
     );
@@ -48,7 +48,7 @@ class LoginScreenConsumer extends StatelessWidget {
               .updateAfterAuthChange(user: state.userDto, isAuthorized: true);
           Future.delayed(const Duration(milliseconds: 100), () {
             navigator<NavigationService>()
-                .navigateTo(CoreRoutes.welcomeRoute, isClearStack: true);
+                .navigateTo(CoreRoutes.homeRoute, isClearStack: true);
           });
         } else if (state.isFailed) {
           if (state.errorMessage.isNotEmpty) {
