@@ -623,7 +623,10 @@ mixin _$HomeState {
   bool get noUse => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isLoadingTrendingSection => throw _privateConstructorUsedError;
+  bool get isLoadingTopRatingSection => throw _privateConstructorUsedError;
   List<TrendingDataDto> get lsOfTrending => throw _privateConstructorUsedError;
+  List<TopRatingDataDto> get lsOfTopRating =>
+      throw _privateConstructorUsedError;
   List<String> get trendingDropdownList => throw _privateConstructorUsedError;
   String get selectedTrendingValue => throw _privateConstructorUsedError;
   TMDBRepository get tmdbRepository => throw _privateConstructorUsedError;
@@ -644,7 +647,9 @@ abstract class $HomeStateCopyWith<$Res> {
       bool noUse,
       bool isLoading,
       bool isLoadingTrendingSection,
+      bool isLoadingTopRatingSection,
       List<TrendingDataDto> lsOfTrending,
+      List<TopRatingDataDto> lsOfTopRating,
       List<String> trendingDropdownList,
       String selectedTrendingValue,
       TMDBRepository tmdbRepository,
@@ -666,7 +671,9 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
     Object? noUse = freezed,
     Object? isLoading = freezed,
     Object? isLoadingTrendingSection = freezed,
+    Object? isLoadingTopRatingSection = freezed,
     Object? lsOfTrending = freezed,
+    Object? lsOfTopRating = freezed,
     Object? trendingDropdownList = freezed,
     Object? selectedTrendingValue = freezed,
     Object? tmdbRepository = freezed,
@@ -693,10 +700,18 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
           ? _value.isLoadingTrendingSection
           : isLoadingTrendingSection // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLoadingTopRatingSection: isLoadingTopRatingSection == freezed
+          ? _value.isLoadingTopRatingSection
+          : isLoadingTopRatingSection // ignore: cast_nullable_to_non_nullable
+              as bool,
       lsOfTrending: lsOfTrending == freezed
           ? _value.lsOfTrending
           : lsOfTrending // ignore: cast_nullable_to_non_nullable
               as List<TrendingDataDto>,
+      lsOfTopRating: lsOfTopRating == freezed
+          ? _value.lsOfTopRating
+          : lsOfTopRating // ignore: cast_nullable_to_non_nullable
+              as List<TopRatingDataDto>,
       trendingDropdownList: trendingDropdownList == freezed
           ? _value.trendingDropdownList
           : trendingDropdownList // ignore: cast_nullable_to_non_nullable
@@ -729,7 +744,9 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       bool noUse,
       bool isLoading,
       bool isLoadingTrendingSection,
+      bool isLoadingTopRatingSection,
       List<TrendingDataDto> lsOfTrending,
+      List<TopRatingDataDto> lsOfTopRating,
       List<String> trendingDropdownList,
       String selectedTrendingValue,
       TMDBRepository tmdbRepository,
@@ -753,7 +770,9 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
     Object? noUse = freezed,
     Object? isLoading = freezed,
     Object? isLoadingTrendingSection = freezed,
+    Object? isLoadingTopRatingSection = freezed,
     Object? lsOfTrending = freezed,
+    Object? lsOfTopRating = freezed,
     Object? trendingDropdownList = freezed,
     Object? selectedTrendingValue = freezed,
     Object? tmdbRepository = freezed,
@@ -780,10 +799,18 @@ class __$$_HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
           ? _value.isLoadingTrendingSection
           : isLoadingTrendingSection // ignore: cast_nullable_to_non_nullable
               as bool,
+      isLoadingTopRatingSection: isLoadingTopRatingSection == freezed
+          ? _value.isLoadingTopRatingSection
+          : isLoadingTopRatingSection // ignore: cast_nullable_to_non_nullable
+              as bool,
       lsOfTrending: lsOfTrending == freezed
           ? _value._lsOfTrending
           : lsOfTrending // ignore: cast_nullable_to_non_nullable
               as List<TrendingDataDto>,
+      lsOfTopRating: lsOfTopRating == freezed
+          ? _value._lsOfTopRating
+          : lsOfTopRating // ignore: cast_nullable_to_non_nullable
+              as List<TopRatingDataDto>,
       trendingDropdownList: trendingDropdownList == freezed
           ? _value._trendingDropdownList
           : trendingDropdownList // ignore: cast_nullable_to_non_nullable
@@ -813,12 +840,15 @@ class _$_HomeState implements _HomeState {
       required this.noUse,
       required this.isLoading,
       required this.isLoadingTrendingSection,
+      required this.isLoadingTopRatingSection,
       required final List<TrendingDataDto> lsOfTrending,
+      required final List<TopRatingDataDto> lsOfTopRating,
       required final List<String> trendingDropdownList,
       required this.selectedTrendingValue,
       required this.tmdbRepository,
       required this.errorMessage})
       : _lsOfTrending = lsOfTrending,
+        _lsOfTopRating = lsOfTopRating,
         _trendingDropdownList = trendingDropdownList;
 
   @override
@@ -831,11 +861,20 @@ class _$_HomeState implements _HomeState {
   final bool isLoading;
   @override
   final bool isLoadingTrendingSection;
+  @override
+  final bool isLoadingTopRatingSection;
   final List<TrendingDataDto> _lsOfTrending;
   @override
   List<TrendingDataDto> get lsOfTrending {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_lsOfTrending);
+  }
+
+  final List<TopRatingDataDto> _lsOfTopRating;
+  @override
+  List<TopRatingDataDto> get lsOfTopRating {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_lsOfTopRating);
   }
 
   final List<String> _trendingDropdownList;
@@ -854,7 +893,7 @@ class _$_HomeState implements _HomeState {
 
   @override
   String toString() {
-    return 'HomeState(isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, isLoading: $isLoading, isLoadingTrendingSection: $isLoadingTrendingSection, lsOfTrending: $lsOfTrending, trendingDropdownList: $trendingDropdownList, selectedTrendingValue: $selectedTrendingValue, tmdbRepository: $tmdbRepository, errorMessage: $errorMessage)';
+    return 'HomeState(isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, isLoading: $isLoading, isLoadingTrendingSection: $isLoadingTrendingSection, isLoadingTopRatingSection: $isLoadingTopRatingSection, lsOfTrending: $lsOfTrending, lsOfTopRating: $lsOfTopRating, trendingDropdownList: $trendingDropdownList, selectedTrendingValue: $selectedTrendingValue, tmdbRepository: $tmdbRepository, errorMessage: $errorMessage)';
   }
 
   @override
@@ -868,8 +907,12 @@ class _$_HomeState implements _HomeState {
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(
                 other.isLoadingTrendingSection, isLoadingTrendingSection) &&
+            const DeepCollectionEquality().equals(
+                other.isLoadingTopRatingSection, isLoadingTopRatingSection) &&
             const DeepCollectionEquality()
                 .equals(other._lsOfTrending, _lsOfTrending) &&
+            const DeepCollectionEquality()
+                .equals(other._lsOfTopRating, _lsOfTopRating) &&
             const DeepCollectionEquality()
                 .equals(other._trendingDropdownList, _trendingDropdownList) &&
             const DeepCollectionEquality()
@@ -888,7 +931,9 @@ class _$_HomeState implements _HomeState {
       const DeepCollectionEquality().hash(noUse),
       const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(isLoadingTrendingSection),
+      const DeepCollectionEquality().hash(isLoadingTopRatingSection),
       const DeepCollectionEquality().hash(_lsOfTrending),
+      const DeepCollectionEquality().hash(_lsOfTopRating),
       const DeepCollectionEquality().hash(_trendingDropdownList),
       const DeepCollectionEquality().hash(selectedTrendingValue),
       const DeepCollectionEquality().hash(tmdbRepository),
@@ -907,7 +952,9 @@ abstract class _HomeState implements HomeState {
       required final bool noUse,
       required final bool isLoading,
       required final bool isLoadingTrendingSection,
+      required final bool isLoadingTopRatingSection,
       required final List<TrendingDataDto> lsOfTrending,
+      required final List<TopRatingDataDto> lsOfTopRating,
       required final List<String> trendingDropdownList,
       required final String selectedTrendingValue,
       required final TMDBRepository tmdbRepository,
@@ -924,7 +971,11 @@ abstract class _HomeState implements HomeState {
   @override
   bool get isLoadingTrendingSection;
   @override
+  bool get isLoadingTopRatingSection;
+  @override
   List<TrendingDataDto> get lsOfTrending;
+  @override
+  List<TopRatingDataDto> get lsOfTopRating;
   @override
   List<String> get trendingDropdownList;
   @override

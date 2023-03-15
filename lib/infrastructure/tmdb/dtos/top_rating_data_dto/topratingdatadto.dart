@@ -1,26 +1,25 @@
 // ignore_for_file: invalid_annotation_target, non_constant_identifier_names
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'trending_data_dto.freezed.dart';
-part 'trending_data_dto.g.dart';
+part 'topratingdatadto.freezed.dart';
+part 'topratingdatadto.g.dart';
 
 @freezed
-class TrendingDataDto with _$TrendingDataDto {
-  factory TrendingDataDto({
+class TopRatingDataDto with _$TopRatingDataDto {
+  factory TopRatingDataDto({
     required int id,
     String? name,
     @JsonKey(defaultValue: 'N/A') String? title,
     String? backdrop_path,
     String? poster_path,
-    String? media_type,
+    //String? media_type,
     String? first_air_date,
     @JsonKey(defaultValue: 'N/A') String? release_date,
     double? vote_average,
-  }) = _TrendingDataDto;
+  }) = _TopRatingDataDto;
 
-  factory TrendingDataDto.fromJson(Map<String, dynamic> json) =>
-      _$TrendingDataDtoFromJson(
+  factory TopRatingDataDto.fromJson(Map<String, dynamic> json) =>
+      _$TopRatingDataDtoFromJson(
         json,
       );
 }

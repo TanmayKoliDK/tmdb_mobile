@@ -8,7 +8,9 @@ class HomeState with _$HomeState {
     required bool noUse,
     required bool isLoading,
     required bool isLoadingTrendingSection,
+    required bool isLoadingTopRatingSection,
     required List<TrendingDataDto> lsOfTrending,
+    required List<TopRatingDataDto> lsOfTopRating,
     required List<String> trendingDropdownList,
     required String selectedTrendingValue,
     required TMDBRepository tmdbRepository,
@@ -21,6 +23,7 @@ class HomeState with _$HomeState {
   }) {
     return HomeState(
         isLoadingTrendingSection: false,
+        isLoadingTopRatingSection: false,
         tmdbRepository: ITMDBRepository(apiUrl: apiBaseUrl, apiKey: apiKey),
         selectedTrendingValue: 'Today',
         trendingDropdownList: [
@@ -28,6 +31,7 @@ class HomeState with _$HomeState {
           'This Week',
         ],
         lsOfTrending: [],
+        lsOfTopRating: [],
         isFailed: false,
         isSuccess: false,
         noUse: false,

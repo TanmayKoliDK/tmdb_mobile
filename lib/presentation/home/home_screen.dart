@@ -91,194 +91,283 @@ class HomeScreenConsumer extends StatelessWidget {
                     padding:
                         EdgeInsets.symmetric(vertical: 3.h, horizontal: 6.w),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Welcome.',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30.sp),
-                        ),
-                        Text(
-                          'Millions of movies,',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 24.sp),
-                        ),
-                        Text(
-                          'TV shows and people',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 24.sp),
-                        ),
-                        Text(
-                          'to discover. Explore',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 24.sp),
-                        ),
-                        Text(
-                          'now.',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 24.sp),
-                        ),
-                        SizedBox(height: 3.h),
-                        Container(
-                          width: 90.w,
-                          height: 8.h,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              border: Border.all(),
-                              borderRadius: BorderRadius.circular(40)),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                vertical: 2.5.h, horizontal: 8.w),
-                            child: Text(
-                              'Search...',
-                              style: TextStyle(
-                                  fontSize: 18.sp, color: Colors.grey.shade600),
-                            ),
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Welcome.',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30.sp),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 4.h,
-                  ),
-                  Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 3.w)),
-                    Text(
-                      'Trending',
-                      style: TextStyle(
-                          fontSize: 22.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    SizedBox(width: 6.w),
-                    SizedBox(
-                      width: 33.w,
-                      height: 6.h,
-                      child: DropdownButtonFormField(
-                          dropdownColor: Theme.of(context).colorScheme.primary,
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Theme.of(context).colorScheme.primary,
-                            contentPadding: EdgeInsets.only(
-                                left: 4.w, right: 4.w, top: 1.h),
-                            isDense: true,
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: Theme.of(context)
-                                      .colorScheme
-                                      .onSecondary),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10.w)),
-                            ),
+                          Text(
+                            'Millions of movies,',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24.sp),
                           ),
-                          isExpanded: true,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall!
-                              .copyWith(
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w700,
-                                color: const Color.fromARGB(255, 128, 224, 131),
+                          Text(
+                            'TV shows and people',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24.sp),
+                          ),
+                          Text(
+                            'to discover. Explore',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24.sp),
+                          ),
+                          Text(
+                            'now.',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24.sp),
+                          ),
+                          SizedBox(height: 3.h),
+                          Container(
+                            width: 90.w,
+                            height: 8.h,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                border: Border.all(),
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 2.5.h, horizontal: 8.w),
+                              child: Text(
+                                'Search...',
+                                style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: Colors.grey.shade600),
                               ),
-                          icon: SvgPicture.asset(
-                            AssetConstants.arrowDown,
-                            width: 12.w,
-                            height: 7.w,
-                            color: const Color.fromARGB(255, 128, 224, 131),
+                            ),
                           ),
-                          value: state.selectedTrendingValue,
-                          items: state.trendingDropdownList.map((String item) {
-                            return DropdownMenuItem(
-                              value: item,
-                              child: Text(item),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            context
-                                .read<HomeBloc>()
-                                .add(HomeEvent.onChangeTrendingTime(
-                                  selectedTime: newValue!,
-                                ));
-                          }),
-                    ),
-                  ]),
-                  SizedBox(height: 1.h),
-                  SizedBox(
-                    height: 35.h,
-                    width: 100.w,
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.symmetric(horizontal: 5.w),
-                      itemCount: state.isLoadingTrendingSection
-                          ? 5
-                          : state.lsOfTrending.length,
-                      separatorBuilder: (BuildContext context, int index) {
-                        return SizedBox(
-                          width: 5.w,
-                        );
-                      },
-                      itemBuilder: (BuildContext context, int index) {
-                        return state.isLoadingTrendingSection
-                            ? Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(2.w),
-                                  color: Colors.grey.withOpacity(0.4),
-                                ),
-                                height: 10.h,
-                                width: 40.w,
-                              )
-                            : SizedBox(
-                                width: 40.w,
-                                child: Column(children: [
-                                  Container(
-                                    width: 40.w,
-                                    height: 30.h,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.4),
-                                      borderRadius:
-                                          BorderRadius.circular(1.5.w),
-                                    ),
-                                    child: state.lsOfTrending[index]
-                                                .poster_path ==
-                                            null
-                                        ? null
-                                        : ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(1.5.w),
-                                            child: Image.network(
-                                                '${ApiConstants.displayImagePath}${state.lsOfTrending[index].poster_path ?? ''}',
-                                                fit: BoxFit.cover),
-                                          ),
-                                  ),
-                                  Text(
-                                    state.lsOfTrending[index].name ??
-                                        state.lsOfTrending[index].title ??
-                                        '',
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.center,
-                                    style:
-                                        Theme.of(context).textTheme.bodySmall,
-                                  ),
-                                ]),
-                              );
-                      },
-                    ),
+                        ]),
                   ),
-                  SizedBox(height: 5.h),
                 ]),
               ]),
+              SizedBox(height: 4.h),
+              Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Padding(padding: EdgeInsets.symmetric(horizontal: 3.w)),
+                Text(
+                  'Trending',
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20.sp),
+                ),
+                SizedBox(width: 6.w),
+                SizedBox(
+                  width: 34.w,
+                  height: 4.h,
+                  child: DropdownButtonFormField(
+                      dropdownColor: Theme.of(context).colorScheme.primary,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Theme.of(context).colorScheme.primary,
+                        contentPadding:
+                            EdgeInsets.only(left: 4.w, right: 4.w, top: 1.h),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Theme.of(context).colorScheme.onSecondary),
+                          borderRadius: BorderRadius.all(Radius.circular(10.w)),
+                        ),
+                      ),
+                      isExpanded: true,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w700,
+                            color: const Color.fromARGB(255, 128, 224, 131),
+                          ),
+                      icon: SvgPicture.asset(
+                        AssetConstants.arrowDown,
+                        width: 12.w,
+                        height: 7.w,
+                        color: const Color.fromARGB(255, 128, 224, 131),
+                      ),
+                      value: state.selectedTrendingValue,
+                      items: state.trendingDropdownList.map((String item) {
+                        return DropdownMenuItem(
+                          value: item,
+                          child: Text(item),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        context
+                            .read<HomeBloc>()
+                            .add(HomeEvent.onChangeTrendingTime(
+                              selectedTime: newValue!,
+                            ));
+                      }),
+                ),
+              ]),
+              SizedBox(height: 4.h),
+              SizedBox(
+                height: 38.h,
+                width: 100.w,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.symmetric(horizontal: 5.w),
+                  itemCount: state.isLoadingTrendingSection
+                      ? 5
+                      : state.lsOfTrending.length,
+                  separatorBuilder: (BuildContext context, int index) {
+                    return SizedBox(
+                      width: 5.w,
+                    );
+                  },
+                  itemBuilder: (BuildContext context, int index) {
+                    return state.isLoadingTrendingSection
+                        ? Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(2.w),
+                              color: Colors.grey.withOpacity(0.4),
+                            ),
+                            height: 10.h,
+                            width: 40.w,
+                          )
+                        : SizedBox(
+                            width: 40.w,
+                            child: Column(children: [
+                              Container(
+                                width: 40.w,
+                                height: 30.h,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.4),
+                                  borderRadius: BorderRadius.circular(1.5.w),
+                                ),
+                                child: state.lsOfTrending[index].poster_path ==
+                                        null
+                                    ? null
+                                    : ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(1.5.w),
+                                        child: Image.network(
+                                            '${ApiConstants.displayImagePath}${state.lsOfTrending[index].poster_path ?? ''}',
+                                            fit: BoxFit.cover),
+                                      ),
+                              ),
+                              Text(
+                                state.lsOfTrending[index].name ??
+                                    state.lsOfTrending[index].title ??
+                                    '',
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 16.sp),
+                              ),
+                              Text(
+                                state.lsOfTrending[index].first_air_date ??
+                                    state.lsOfTrending[index].release_date ??
+                                    '',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ]),
+                          );
+                  },
+                ),
+              ),
+              SizedBox(height: 0.h),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 3.w),
+                child: Text(
+                  'Top Rating Movies',
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20.sp,
+                      ),
+                ),
+              ),
+              SizedBox(height: 2.h),
+              SizedBox(
+                height: 38.h,
+                width: 100.w,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.symmetric(horizontal: 5.w),
+                  itemCount: state.isLoadingTopRatingSection
+                      ? 5
+                      : state.lsOfTopRating.length,
+                  separatorBuilder: (BuildContext context, int index) {
+                    return SizedBox(
+                      width: 5.w,
+                    );
+                  },
+                  itemBuilder: (BuildContext context, int index) {
+                    return state.isLoadingTopRatingSection
+                        ? Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(2.w),
+                              color: Colors.grey.withOpacity(0.4),
+                            ),
+                            height: 10.h,
+                            width: 40.w,
+                          )
+                        : SizedBox(
+                            width: 40.w,
+                            child: Column(children: [
+                              Container(
+                                width: 40.w,
+                                height: 30.h,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey.withOpacity(0.4),
+                                  borderRadius: BorderRadius.circular(1.5.w),
+                                ),
+                                child: state.lsOfTopRating[index].poster_path ==
+                                        null
+                                    ? null
+                                    : ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(1.5.w),
+                                        child: Image.network(
+                                            '${ApiConstants.displayImagePath}${state.lsOfTopRating[index].poster_path ?? ''}',
+                                            fit: BoxFit.cover),
+                                      ),
+                              ),
+                              Text(
+                                state.lsOfTopRating[index].name ??
+                                    state.lsOfTopRating[index].title ??
+                                    '',
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 16.sp),
+                              ),
+                              Text(
+                                state.lsOfTopRating[index].first_air_date ??
+                                    state.lsOfTopRating[index].release_date ??
+                                    '',
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context).textTheme.bodySmall,
+                              ),
+                            ]),
+                          );
+                  },
+                ),
+              ),
             ]),
           ),
         );
