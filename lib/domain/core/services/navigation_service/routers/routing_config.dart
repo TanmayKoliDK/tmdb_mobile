@@ -8,6 +8,7 @@ import 'package:tmdb_mobile/presentation/home/home_screen.dart';
 //import 'package:tmdb_mobile/presentation/welcome/welcome_screen.dart';
 
 import '../../../../../infrastructure/platform/platform_enum.dart';
+import '../../../../../presentation/movie_details/movie_details_screen.dart';
 import '../../../../core/configs/determine_platform.dart';
 import 'route_names.dart';
 import '../../../extensions/string_extensions.dart';
@@ -19,6 +20,15 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
     case CoreRoutes.homeRoute:
       return _getPageRoute(
         const HomeScreen(),
+        settings,
+      );
+
+    case CoreRoutes.movieDetailsRoute:
+      final routeData = routingData.queryParameters;
+      return _getPageRoute(
+        MovieDetailScreen(
+          movieID: routeData['movieId'] ?? '',
+        ),
         settings,
       );
 

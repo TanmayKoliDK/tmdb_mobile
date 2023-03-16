@@ -3,7 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tmdb_mobile/domain/core/configs/app_config.dart';
+import 'package:tmdb_mobile/domain/core/configs/injection.dart';
 import 'package:tmdb_mobile/domain/core/constants/api_constants.dart';
+import 'package:tmdb_mobile/domain/core/services/navigation_service/navigation_service.dart';
+import 'package:tmdb_mobile/domain/core/services/navigation_service/routers/route_names.dart';
 
 import '../../application/home/home_bloc.dart';
 import '../../domain/core/constants/asset_constants.dart';
@@ -231,52 +234,63 @@ class HomeScreenConsumer extends StatelessWidget {
                             height: 10.h,
                             width: 40.w,
                           )
-                        : SizedBox(
-                            width: 40.w,
-                            child: Column(children: [
-                              Container(
-                                width: 40.w,
-                                height: 30.h,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey.withOpacity(0.4),
-                                  borderRadius: BorderRadius.circular(1.5.w),
+                        : GestureDetector(
+                            onTap: () {
+                              navigator<NavigationService>().navigateTo(
+                                  CoreRoutes.movieDetailsRoute,
+                                  queryParams: {
+                                    'movieId':
+                                        state.lsOfTrending[index].id.toString()
+                                  });
+                            },
+                            child: SizedBox(
+                              width: 40.w,
+                              child: Column(children: [
+                                Container(
+                                  width: 40.w,
+                                  height: 30.h,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.4),
+                                    borderRadius: BorderRadius.circular(1.5.w),
+                                  ),
+                                  child:
+                                      state.lsOfTrending[index].poster_path ==
+                                              null
+                                          ? null
+                                          : ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(1.5.w),
+                                              child: Image.network(
+                                                  '${ApiConstants.displayImagePath}${state.lsOfTrending[index].poster_path ?? ''}',
+                                                  fit: BoxFit.cover),
+                                            ),
                                 ),
-                                child: state.lsOfTrending[index].poster_path ==
-                                        null
-                                    ? null
-                                    : ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(1.5.w),
-                                        child: Image.network(
-                                            '${ApiConstants.displayImagePath}${state.lsOfTrending[index].poster_path ?? ''}',
-                                            fit: BoxFit.cover),
-                                      ),
-                              ),
-                              Text(
-                                state.lsOfTrending[index].name ??
-                                    state.lsOfTrending[index].title ??
-                                    '',
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall!
-                                    .copyWith(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16.sp),
-                              ),
-                              Text(
-                                state.lsOfTrending[index].first_air_date ??
-                                    state.lsOfTrending[index].release_date ??
-                                    '',
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.bodySmall,
-                              ),
-                            ]),
+                                Text(
+                                  state.lsOfTrending[index].name ??
+                                      state.lsOfTrending[index].title ??
+                                      '',
+                                  maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 16.sp),
+                                ),
+                                Text(
+                                  state.lsOfTrending[index].first_air_date ??
+                                      state.lsOfTrending[index].release_date ??
+                                      '',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                ),
+                              ]),
+                            ),
                           );
                   },
                 ),
@@ -318,52 +332,63 @@ class HomeScreenConsumer extends StatelessWidget {
                             height: 10.h,
                             width: 40.w,
                           )
-                        : SizedBox(
-                            width: 40.w,
-                            child: Column(children: [
-                              Container(
-                                width: 40.w,
-                                height: 30.h,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey.withOpacity(0.4),
-                                  borderRadius: BorderRadius.circular(1.5.w),
+                        : GestureDetector(
+                            onTap: () {
+                              navigator<NavigationService>().navigateTo(
+                                  CoreRoutes.movieDetailsRoute,
+                                  queryParams: {
+                                    'movieId':
+                                        state.lsOfTopRating[index].id.toString()
+                                  });
+                            },
+                            child: SizedBox(
+                              width: 40.w,
+                              child: Column(children: [
+                                Container(
+                                  width: 40.w,
+                                  height: 30.h,
+                                  decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.4),
+                                    borderRadius: BorderRadius.circular(1.5.w),
+                                  ),
+                                  child:
+                                      state.lsOfTopRating[index].poster_path ==
+                                              null
+                                          ? null
+                                          : ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(1.5.w),
+                                              child: Image.network(
+                                                  '${ApiConstants.displayImagePath}${state.lsOfTopRating[index].poster_path ?? ''}',
+                                                  fit: BoxFit.cover),
+                                            ),
                                 ),
-                                child: state.lsOfTopRating[index].poster_path ==
-                                        null
-                                    ? null
-                                    : ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(1.5.w),
-                                        child: Image.network(
-                                            '${ApiConstants.displayImagePath}${state.lsOfTopRating[index].poster_path ?? ''}',
-                                            fit: BoxFit.cover),
-                                      ),
-                              ),
-                              Text(
-                                state.lsOfTopRating[index].name ??
-                                    state.lsOfTopRating[index].title ??
-                                    '',
-                                maxLines: 3,
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall!
-                                    .copyWith(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16.sp),
-                              ),
-                              Text(
-                                state.lsOfTopRating[index].first_air_date ??
-                                    state.lsOfTopRating[index].release_date ??
-                                    '',
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context).textTheme.bodySmall,
-                              ),
-                            ]),
+                                Text(
+                                  state.lsOfTopRating[index].name ??
+                                      state.lsOfTopRating[index].title ??
+                                      '',
+                                  maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 16.sp),
+                                ),
+                                Text(
+                                  state.lsOfTopRating[index].first_air_date ??
+                                      state.lsOfTopRating[index].release_date ??
+                                      '',
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context).textTheme.bodySmall,
+                                ),
+                              ]),
+                            ),
                           );
                   },
                 ),

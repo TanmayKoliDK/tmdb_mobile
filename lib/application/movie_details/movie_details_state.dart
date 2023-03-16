@@ -7,20 +7,27 @@ class MovieDetailsState with _$MovieDetailsState {
     required bool isSuccess,
     required bool noUse,
     required bool isLoading,
-    required String errorMessage,
+    required bool isLoadingMovieDetailsSection,
+    MovieDetailsDataDto? movieDetails,
     required TMDBRepository tmdbRepository,
+    required String errorMessage,
+    required String movieId,
   }) = _MovieDetailsState;
 
   factory MovieDetailsState.initial({
     required String apiBaseUrl,
     required String apiKey,
+    required String movieId,
   }) {
     return MovieDetailsState(
-        tmdbRepository: ITMDBRepository(apiUrl: apiBaseUrl, apiKey: apiKey),
-        isFailed: false,
-        isSuccess: false,
-        noUse: false,
-        isLoading: false,
-        errorMessage: '');
+      movieId: movieId,
+      isLoadingMovieDetailsSection: false,
+      tmdbRepository: ITMDBRepository(apiUrl: apiBaseUrl, apiKey: apiKey),
+      isFailed: false,
+      isSuccess: false,
+      noUse: false,
+      isLoading: false,
+      errorMessage: '',
+    );
   }
 }

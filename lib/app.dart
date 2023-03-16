@@ -1,10 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tmdb_mobile/infrastructure/auth/dtos/user/user_dto.dart';
 import 'package:tmdb_mobile/infrastructure/auth/i_auth_repository.dart';
-import 'package:tmdb_mobile/infrastructure/tmdb/i_tmdb_repository.dart';
 
 import 'domain/auth/auth_repositorry.dart';
 import 'domain/core/configs/app_config.dart';

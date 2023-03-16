@@ -452,8 +452,11 @@ mixin _$MovieDetailsState {
   bool get isSuccess => throw _privateConstructorUsedError;
   bool get noUse => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
-  String get errorMessage => throw _privateConstructorUsedError;
+  bool get isLoadingMovieDetailsSection => throw _privateConstructorUsedError;
+  MovieDetailsDataDto? get movieDetails => throw _privateConstructorUsedError;
   TMDBRepository get tmdbRepository => throw _privateConstructorUsedError;
+  String get errorMessage => throw _privateConstructorUsedError;
+  String get movieId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MovieDetailsStateCopyWith<MovieDetailsState> get copyWith =>
@@ -470,8 +473,13 @@ abstract class $MovieDetailsStateCopyWith<$Res> {
       bool isSuccess,
       bool noUse,
       bool isLoading,
+      bool isLoadingMovieDetailsSection,
+      MovieDetailsDataDto? movieDetails,
+      TMDBRepository tmdbRepository,
       String errorMessage,
-      TMDBRepository tmdbRepository});
+      String movieId});
+
+  $MovieDetailsDataDtoCopyWith<$Res>? get movieDetails;
 }
 
 /// @nodoc
@@ -489,8 +497,11 @@ class _$MovieDetailsStateCopyWithImpl<$Res>
     Object? isSuccess = freezed,
     Object? noUse = freezed,
     Object? isLoading = freezed,
-    Object? errorMessage = freezed,
+    Object? isLoadingMovieDetailsSection = freezed,
+    Object? movieDetails = freezed,
     Object? tmdbRepository = freezed,
+    Object? errorMessage = freezed,
+    Object? movieId = freezed,
   }) {
     return _then(_value.copyWith(
       isFailed: isFailed == freezed
@@ -509,15 +520,38 @@ class _$MovieDetailsStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      errorMessage: errorMessage == freezed
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
+      isLoadingMovieDetailsSection: isLoadingMovieDetailsSection == freezed
+          ? _value.isLoadingMovieDetailsSection
+          : isLoadingMovieDetailsSection // ignore: cast_nullable_to_non_nullable
+              as bool,
+      movieDetails: movieDetails == freezed
+          ? _value.movieDetails
+          : movieDetails // ignore: cast_nullable_to_non_nullable
+              as MovieDetailsDataDto?,
       tmdbRepository: tmdbRepository == freezed
           ? _value.tmdbRepository
           : tmdbRepository // ignore: cast_nullable_to_non_nullable
               as TMDBRepository,
+      errorMessage: errorMessage == freezed
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      movieId: movieId == freezed
+          ? _value.movieId
+          : movieId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
+  }
+
+  @override
+  $MovieDetailsDataDtoCopyWith<$Res>? get movieDetails {
+    if (_value.movieDetails == null) {
+      return null;
+    }
+
+    return $MovieDetailsDataDtoCopyWith<$Res>(_value.movieDetails!, (value) {
+      return _then(_value.copyWith(movieDetails: value));
+    });
   }
 }
 
@@ -533,8 +567,14 @@ abstract class _$$_MovieDetailsStateCopyWith<$Res>
       bool isSuccess,
       bool noUse,
       bool isLoading,
+      bool isLoadingMovieDetailsSection,
+      MovieDetailsDataDto? movieDetails,
+      TMDBRepository tmdbRepository,
       String errorMessage,
-      TMDBRepository tmdbRepository});
+      String movieId});
+
+  @override
+  $MovieDetailsDataDtoCopyWith<$Res>? get movieDetails;
 }
 
 /// @nodoc
@@ -554,8 +594,11 @@ class __$$_MovieDetailsStateCopyWithImpl<$Res>
     Object? isSuccess = freezed,
     Object? noUse = freezed,
     Object? isLoading = freezed,
-    Object? errorMessage = freezed,
+    Object? isLoadingMovieDetailsSection = freezed,
+    Object? movieDetails = freezed,
     Object? tmdbRepository = freezed,
+    Object? errorMessage = freezed,
+    Object? movieId = freezed,
   }) {
     return _then(_$_MovieDetailsState(
       isFailed: isFailed == freezed
@@ -574,14 +617,26 @@ class __$$_MovieDetailsStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
-      errorMessage: errorMessage == freezed
-          ? _value.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String,
+      isLoadingMovieDetailsSection: isLoadingMovieDetailsSection == freezed
+          ? _value.isLoadingMovieDetailsSection
+          : isLoadingMovieDetailsSection // ignore: cast_nullable_to_non_nullable
+              as bool,
+      movieDetails: movieDetails == freezed
+          ? _value.movieDetails
+          : movieDetails // ignore: cast_nullable_to_non_nullable
+              as MovieDetailsDataDto?,
       tmdbRepository: tmdbRepository == freezed
           ? _value.tmdbRepository
           : tmdbRepository // ignore: cast_nullable_to_non_nullable
               as TMDBRepository,
+      errorMessage: errorMessage == freezed
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      movieId: movieId == freezed
+          ? _value.movieId
+          : movieId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -594,8 +649,11 @@ class _$_MovieDetailsState implements _MovieDetailsState {
       required this.isSuccess,
       required this.noUse,
       required this.isLoading,
+      required this.isLoadingMovieDetailsSection,
+      this.movieDetails,
+      required this.tmdbRepository,
       required this.errorMessage,
-      required this.tmdbRepository});
+      required this.movieId});
 
   @override
   final bool isFailed;
@@ -606,13 +664,19 @@ class _$_MovieDetailsState implements _MovieDetailsState {
   @override
   final bool isLoading;
   @override
-  final String errorMessage;
+  final bool isLoadingMovieDetailsSection;
+  @override
+  final MovieDetailsDataDto? movieDetails;
   @override
   final TMDBRepository tmdbRepository;
+  @override
+  final String errorMessage;
+  @override
+  final String movieId;
 
   @override
   String toString() {
-    return 'MovieDetailsState(isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, isLoading: $isLoading, errorMessage: $errorMessage, tmdbRepository: $tmdbRepository)';
+    return 'MovieDetailsState(isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, isLoading: $isLoading, isLoadingMovieDetailsSection: $isLoadingMovieDetailsSection, movieDetails: $movieDetails, tmdbRepository: $tmdbRepository, errorMessage: $errorMessage, movieId: $movieId)';
   }
 
   @override
@@ -624,10 +688,16 @@ class _$_MovieDetailsState implements _MovieDetailsState {
             const DeepCollectionEquality().equals(other.isSuccess, isSuccess) &&
             const DeepCollectionEquality().equals(other.noUse, noUse) &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality().equals(
+                other.isLoadingMovieDetailsSection,
+                isLoadingMovieDetailsSection) &&
+            const DeepCollectionEquality()
+                .equals(other.movieDetails, movieDetails) &&
+            const DeepCollectionEquality()
+                .equals(other.tmdbRepository, tmdbRepository) &&
             const DeepCollectionEquality()
                 .equals(other.errorMessage, errorMessage) &&
-            const DeepCollectionEquality()
-                .equals(other.tmdbRepository, tmdbRepository));
+            const DeepCollectionEquality().equals(other.movieId, movieId));
   }
 
   @override
@@ -637,8 +707,11 @@ class _$_MovieDetailsState implements _MovieDetailsState {
       const DeepCollectionEquality().hash(isSuccess),
       const DeepCollectionEquality().hash(noUse),
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isLoadingMovieDetailsSection),
+      const DeepCollectionEquality().hash(movieDetails),
+      const DeepCollectionEquality().hash(tmdbRepository),
       const DeepCollectionEquality().hash(errorMessage),
-      const DeepCollectionEquality().hash(tmdbRepository));
+      const DeepCollectionEquality().hash(movieId));
 
   @JsonKey(ignore: true)
   @override
@@ -653,8 +726,11 @@ abstract class _MovieDetailsState implements MovieDetailsState {
       required final bool isSuccess,
       required final bool noUse,
       required final bool isLoading,
+      required final bool isLoadingMovieDetailsSection,
+      final MovieDetailsDataDto? movieDetails,
+      required final TMDBRepository tmdbRepository,
       required final String errorMessage,
-      required final TMDBRepository tmdbRepository}) = _$_MovieDetailsState;
+      required final String movieId}) = _$_MovieDetailsState;
 
   @override
   bool get isFailed;
@@ -665,9 +741,15 @@ abstract class _MovieDetailsState implements MovieDetailsState {
   @override
   bool get isLoading;
   @override
-  String get errorMessage;
+  bool get isLoadingMovieDetailsSection;
+  @override
+  MovieDetailsDataDto? get movieDetails;
   @override
   TMDBRepository get tmdbRepository;
+  @override
+  String get errorMessage;
+  @override
+  String get movieId;
   @override
   @JsonKey(ignore: true)
   _$$_MovieDetailsStateCopyWith<_$_MovieDetailsState> get copyWith =>

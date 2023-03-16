@@ -1,5 +1,6 @@
 import 'package:tmdb_mobile/infrastructure/tmdb/dtos/trending_data_dto/trending_data_dto.dart';
 
+import '../../infrastructure/tmdb/dtos/movie_details_data_dto/movie_details_data_dto.dart';
 import '../../infrastructure/tmdb/dtos/top_rating_data_dto/topratingdatadto.dart';
 
 abstract class TMDBRepository {
@@ -8,4 +9,6 @@ abstract class TMDBRepository {
   });
 
   Future<List<TopRatingDataDto>> getTopRatingMovies();
+
+  Future<MovieDetailsDataDto?> getMovieDetails({required String movieId});
 }

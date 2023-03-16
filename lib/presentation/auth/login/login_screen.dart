@@ -77,8 +77,14 @@ class LoginScreenConsumer extends StatelessWidget {
                 SizedBox(
               height: 5.h,
               width: 90.w,
-              child: Image.asset(
-                AssetConstants.logo,
+              child: GestureDetector(
+                onTap: () {
+                  navigator<NavigationService>()
+                      .navigateTo(CoreRoutes.homeRoute);
+                },
+                child: Image.asset(
+                  AssetConstants.logo,
+                ),
               ),
             ),
             centerTitle: true,

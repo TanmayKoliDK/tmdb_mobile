@@ -5,7 +5,8 @@ class AssetConstants {
 
   static const String logo = '${imagesFolder}Tmdb_logo.png';
   static const String itachi = '${imagesFolder}itachi.jpg';
-
+  static const String movieBackPoster = '${imagesFolder}movie_back_poster.jpeg';
+  static const String moviePoster = '${imagesFolder}movie_poster.jpeg';
   static const String eye = '${vectorsFolder}eye.svg';
   static const String closedEye = '${vectorsFolder}closed-eye.svg';
 

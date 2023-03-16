@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:tmdb_mobile/domain/tmdb/tmdb_repository.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:tmdb_mobile/infrastructure/tmdb/dtos/movie_details_data_dto/movie_details_data_dto.dart';
 import 'package:tmdb_mobile/infrastructure/tmdb/dtos/top_rating_data_dto/topratingdatadto.dart';
 import 'package:tmdb_mobile/infrastructure/tmdb/dtos/trending_data_dto/trending_data_dto.dart';
 
@@ -50,9 +51,9 @@ class ITMDBRepository extends TMDBRepository {
 
       final request = http.Request('GET', Uri.parse(url));
 
-      http.StreamedResponse res = await request.send();
+      http.StreamedResponse top = await request.send();
 
-      final resultResponse = await http.Response.fromStream(res);
+      final resultResponse = await http.Response.fromStream(top);
 
       final resData = jsonDecode(resultResponse.body);
       List<dynamic> lsOfResults = resData['results'];
@@ -64,6 +65,30 @@ class ITMDBRepository extends TMDBRepository {
       return lsOfTopRating;
     } catch (e) {
       return lsOfTopRating;
+    }
+  }
+
+  @override
+  Future<MovieDetailsDataDto?> getMovieDetails(
+      {required String movieId}) async {
+    MovieDetailsDataDto? movieDetails;
+    try {
+      String url =
+          '$apiUrl${ApiConstants.movieDetails}$movieId?api_key=$apiKey';
+
+      final request = http.Request('GET', Uri.parse(url));
+
+      http.StreamedResponse det = await request.send();
+
+      final resultResponse = await http.Response.fromStream(det);
+
+      final resData = jsonDecode(resultResponse.body);
+
+      movieDetails = MovieDetailsDataDto.fromJson(resData);
+
+      return movieDetails;
+    } catch (e) {
+      return movieDetails;
     }
   }
 }
